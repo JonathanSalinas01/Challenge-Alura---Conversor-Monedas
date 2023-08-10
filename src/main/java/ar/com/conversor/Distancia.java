@@ -10,7 +10,7 @@ public class Distancia extends JFrame implements ActionListener {
     private JMenu opciones, acerca;
     private JMenuItem CMonedas, CTemperatura, CDistancia, salir, creador;
     private JLabel titulo, flecha;
-    private JTextField monedaIn, monedaOut;
+    private JTextField distanciaIn, distanciaOut;
     private JComboBox opcion1, opcion2;
     private JButton convertir;
     
@@ -54,9 +54,9 @@ public class Distancia extends JFrame implements ActionListener {
         titulo.setBounds(145,20,150,40);
         add(titulo);
         
-        monedaIn = new JTextField();
-        monedaIn.setBounds(50,120,150,40);
-        add(monedaIn);
+        distanciaIn = new JTextField();
+        distanciaIn.setBounds(50,120,150,40);
+        add(distanciaIn);
         
         flecha = new JLabel(">>>");
         flecha.setBounds(215,120,90,45);
@@ -75,10 +75,10 @@ public class Distancia extends JFrame implements ActionListener {
         add(opcion1);
         opcion1.setSelectedItem("Metros");
         
-        monedaOut = new JTextField();
-        monedaOut.setBounds(250,120,150,40);
-        add(monedaOut);
-        monedaOut.setEditable(false);
+        distanciaOut = new JTextField();
+        distanciaOut.setBounds(250,120,150,40);
+        add(distanciaOut);
+        distanciaOut.setEditable(false);
         
         opcion2 = new JComboBox();
         opcion2.setBounds(250,170,150,40);
@@ -103,9 +103,9 @@ public class Distancia extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == convertir){
             ConvertirDistancia distancias = new ConvertirDistancia();
-            double valorEntrada = Double.parseDouble(monedaIn.getText());
+            double valorEntrada = Double.parseDouble(distanciaIn.getText());
             double resultado = distancias.convertirDistancia((String)opcion1.getSelectedItem(), (String) opcion2.getSelectedItem(), valorEntrada);
-            monedaOut.setText(valueOf(resultado));
+            distanciaOut.setText(valueOf(resultado));
         }
         if(e.getSource() == CMonedas){
             Ventana ventanaMonedas = new Ventana();

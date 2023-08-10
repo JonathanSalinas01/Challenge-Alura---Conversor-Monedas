@@ -18,7 +18,7 @@ public class Temperatura extends JFrame implements ActionListener {
     private JMenu opciones, acerca;
     private JMenuItem CMonedas, CTemperatura, CDistancia, salir, creador;
     private JLabel titulo, flecha;
-    private JTextField monedaIn, monedaOut;
+    private JTextField temperaturaIn, temperaturaOut;
     private JComboBox opcion1, opcion2;
     private JButton convertir;
     
@@ -65,9 +65,9 @@ public class Temperatura extends JFrame implements ActionListener {
         titulo.setBounds(145,20,180,40);
         add(titulo);
         
-        monedaIn = new JTextField();
-        monedaIn.setBounds(50,120,150,40);
-        add(monedaIn);
+        temperaturaIn = new JTextField();
+        temperaturaIn.setBounds(50,120,150,40);
+        add(temperaturaIn);
         
         flecha = new JLabel(">>>");
         flecha.setBounds(215,120,90,45);
@@ -80,10 +80,10 @@ public class Temperatura extends JFrame implements ActionListener {
         opcion1.addItem("Grados Kelvin");
         add(opcion1);
         
-        monedaOut = new JTextField();
-        monedaOut.setBounds(250,120,150,40);
-        add(monedaOut);
-        monedaOut.setEditable(false);
+        temperaturaOut = new JTextField();
+        temperaturaOut.setBounds(250,120,150,40);
+        add(temperaturaOut);
+        temperaturaOut.setEditable(false);
         
         opcion2 = new JComboBox();
         opcion2.setBounds(250,170,150,40);
@@ -103,9 +103,9 @@ public class Temperatura extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == convertir){
             ConvertirTemperatura conversor = new ConvertirTemperatura();
-            double valorEntrada = Double.parseDouble(monedaIn.getText());
+            double valorEntrada = Double.parseDouble(temperaturaIn.getText());
             double resultado = conversor.convertirTemepratura((String)opcion1.getSelectedItem(), (String) opcion2.getSelectedItem(), valorEntrada);
-            monedaOut.setText(valueOf(resultado));
+            temperaturaOut.setText(valueOf(resultado));
         }
         
         if(e.getSource() == CMonedas){
